@@ -66,13 +66,13 @@ dependencies {
     implementation("com.elvishew:xlog:1.11.1")
     implementation("com.elvishew:xlog-libcat:1.0.0")
 }
-group = "com.zyc.loghelper"
+group = "com.zyc"
 publishing {
     // 这个配置对于 JitPack 不是必需的，但遵循标准 Maven 发布流程是个好习惯
     publications {
         create<MavenPublication>("release") {
-            groupId = "com.zyc.loghelper"
-            artifactId = "LogHelper" // 你的库名
+            groupId = "com.zyc"
+            artifactId = "loghelper" // 你的库名
             version = "1.0.0"
 
             afterEvaluate {
