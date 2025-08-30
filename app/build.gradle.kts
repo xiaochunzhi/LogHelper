@@ -39,8 +39,9 @@ android {
     }
 }
 
-dependencies {
 
+dependencies {
+//    implementation(files("libs/loghelper.aar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

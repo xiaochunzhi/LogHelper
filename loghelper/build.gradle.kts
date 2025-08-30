@@ -61,7 +61,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     debugImplementation ("com.github.chuckerteam.chucker:library:3.5.2")
-    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:4.2.0")
+    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:3.5.2")
 //    implementation(project(":xlog-libcat"))
     implementation("com.elvishew:xlog:1.11.1")
     implementation("com.elvishew:xlog-libcat:1.0.0")
