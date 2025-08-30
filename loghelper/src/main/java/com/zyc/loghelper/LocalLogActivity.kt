@@ -25,6 +25,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -32,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.zyc.loghelper.ui.theme.LoggerHelpterTheme
+import java.io.File
 
 class LocalLogActivity : ComponentActivity() {
 
@@ -48,7 +50,7 @@ class LocalLogActivity : ComponentActivity() {
             LoggerHelpterTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()){ innerPadding ->
 
-                    val logList = remember { LogHelperUtils.getLocalLogFiles() }
+                    val logList = remember { mutableStateListOf<File>().apply { addAll(LogHelperUtils.getLocalLogFiles()) } }
                     Column {
                         Row(modifier = Modifier.fillMaxWidth().padding(top = 50.dp)) {
                             Icon(
@@ -65,8 +67,13 @@ class LocalLogActivity : ComponentActivity() {
                                 imageVector = Icons.Default.Delete,  // 使用 Material 内置的清除图标
                                 contentDescription = "Clear",      // 无障碍描述
                                 modifier = Modifier.padding(10.dp) .clickable{
-                                    LogHelperUtils.clearLocalLogs()
-                                    logList.clear()
+                                    try {
+                                        LogHelperUtils.clearLocalLogs()
+                                    }catch (e: Exception){
+
+                                    }finally {
+                                        logList.clear()
+                                    }
                                 }
                             )
                         }
