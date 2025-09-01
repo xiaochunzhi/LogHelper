@@ -5,7 +5,7 @@ import com.tencent.mmkv.MMKV
 
 /**
  * 一个用于调试的工具类，用于打印 MMKV 中的所有键值对。
- * 此类应仅用于 debug 构建。
+ * 此类应仅用于 dev 构建。
  */
 object MMKVDebugger {
 

@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <application>
         <activity
             android:name=".MMKVRecordActivity"
             android:exported="false" />
+
         <activity
             android:name=".LocalLogActivity"
             android:exported="false" />
@@ -15,6 +15,32 @@
             android:exported="true">
 
         </activity>
+
+        <activity-alias
+            android:name=".LauncherAliasAlternate"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher_background"
+            android:label="logHelper"
+            android:targetActivity=".LoggerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!-- 默认的启动器入口 (默认启用) -->
+        <activity-alias
+            android:name=".LauncherAliasDefault"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher_background"
+            android:label="logHelper"
+            android:targetActivity=".LoggerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
     </application>
 
 

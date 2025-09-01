@@ -1,7 +1,9 @@
 package com.zyc.loghelper
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.Icon
@@ -35,11 +37,33 @@ object LogHelperUtils {
 
         initLog()
     }
+    fun switchToAlternateLauncher(context: Context,isEnable: Boolean) {
+        val packageManager = context.packageManager
+        val componentNameDefault = ComponentName(context, "com.zyc.loghelper.LauncherAliasDefault")
+        val componentNameAlternate = ComponentName(context, "com.zyc.loghelper.LauncherAliasAlternate")
 
+        if (isEnable){
+            // 启用备用别名
+            packageManager.setComponentEnabledSetting(
+                componentNameAlternate,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP
+            )
+        }else{
+            // 禁用默认别名
+            packageManager.setComponentEnabledSetting(
+                componentNameDefault,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP // 可选，设置后不会立即杀死应用进程
+            )
+        }
+
+
+
+    }
     private fun initLog() {
 
         val config = LogConfiguration.Builder()
-            .logLevel(if (BuildConfig.DEBUG) LogLevel.ALL else LogLevel.NONE)
             .tag("LogHelper") // 指定 TAG，默认为 "X-LOG"
             .enableThreadInfo() // 允许打印线程信息，默认禁止
             .enableStackTrace(2) // 允许打印深度为 2 的调用栈信息，默认禁止
