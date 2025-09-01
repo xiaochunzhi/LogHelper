@@ -1,7 +1,14 @@
 package com.zyc.loghelper
 
 import android.content.Context
+import android.content.Intent
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
+import android.graphics.drawable.Icon
+import android.os.Build
+import com.elvishew.xlog.BuildConfig
 import com.elvishew.xlog.LogConfiguration
+import com.elvishew.xlog.LogLevel
 import com.elvishew.xlog.XLog
 import com.elvishew.xlog.flattener.ClassicFlattener
 import com.elvishew.xlog.libcat.LibCat
@@ -32,6 +39,7 @@ object LogHelperUtils {
     private fun initLog() {
 
         val config = LogConfiguration.Builder()
+            .logLevel(if (BuildConfig.DEBUG) LogLevel.ALL else LogLevel.NONE)
             .tag("LogHelper") // 指定 TAG，默认为 "X-LOG"
             .enableThreadInfo() // 允许打印线程信息，默认禁止
             .enableStackTrace(2) // 允许打印深度为 2 的调用栈信息，默认禁止

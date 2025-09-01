@@ -60,7 +60,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
                     }
                     "mmkv记录"->{
-
+                        startActivity(MMKVRecordActivity.newIntent(this@LoggerActivity))
                     }
                 }
             }

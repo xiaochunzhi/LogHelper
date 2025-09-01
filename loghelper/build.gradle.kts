@@ -9,17 +9,33 @@ plugins {
 
 android {
     namespace = "com.zyc.loghelper"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 34
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    sourceSets {
+        getByName("release") {
+            // main 文件夹下的源文件
+            manifest.srcFile("src/main/AndroidManifest.xml")
+        }
+        getByName("debug") {
+            // debug 文件夹下的源文件
+            manifest.srcFile("src/debug/AndroidManifest.xml")
+        }
+    }
     buildTypes {
         release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        debug {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -65,6 +81,7 @@ dependencies {
 //    implementation(project(":xlog-libcat"))
     implementation("com.elvishew:xlog:1.11.1")
     implementation("com.elvishew:xlog-libcat:1.0.0")
+    implementation("com.tencent:mmkv:2.2.3")
 }
 group = "com.zyc"
 publishing {
