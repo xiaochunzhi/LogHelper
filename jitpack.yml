@@ -2,4 +2,4 @@
 
 # 告诉 JitPack 在构建时要执行的 Gradle 任务
 build:
-  - ./gradlew publish
+  - ./gradlew assembleProdRelease publish
