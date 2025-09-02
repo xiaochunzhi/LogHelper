@@ -1,5 +1,8 @@
 # jitpack.yml
 
 # 最可靠的解决方案：在构建前执行发布任务
+jdk:
+  - openjdk17
+
 before_install:
   - ./gradlew :loghelper:publish
