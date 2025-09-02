@@ -71,28 +71,28 @@ dependencies {
     implementation("com.tencent:mmkv:2.2.3")
 }
 group = "com.zyc"
+// lib/build.gradle.kts
+
 publishing {
     publications {
-        // 发布 devDebug 变体
+        // 这是用于发布到 Maven 的默认配置
         create<MavenPublication>("devDebug") {
             groupId = "com.zyc"
             artifactId = "LogHelper"
-            version = "1.0.10-devDebug" // 为清晰起见，使用一个唯一的版本号
+            version = "1.0.11" // 将版本号改回主版本号
+
             afterEvaluate {
                 from(components["devDebug"])
             }
-
         }
-
-        // 发布 prodRelease 变体
         create<MavenPublication>("prodRelease") {
             groupId = "com.zyc"
             artifactId = "LogHelper"
-            version = "1.0.10"
-            afterEvaluate{
+            version = "1.0.11"
+
+            afterEvaluate {
                 from(components["prodRelease"])
             }
-
         }
     }
 }
