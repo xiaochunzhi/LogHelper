@@ -1,16 +1,5 @@
 # jitpack.yml
 
-# jitpack.yml
-
-# 告诉 JitPack 在构建时执行的 Gradle 任务
-before_install:
-  - ./gradlew publishToMavenLocal
-
-# 明确指定要发布的变体和它们的别名
-publish:
-  prod:
-    variant: prodRelease
-    version: 1.0.11
-  dev:
-    variant: devDebug
-    version: 1.0.11-devDebug
+# 告诉 JitPack 在构建时要执行的 Gradle 任务
+build:
+  - ./gradlew publish
