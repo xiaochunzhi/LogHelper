@@ -20,3 +20,6 @@ aliplication 里初始化LogHelperUtils.initialize(this)
 .addInterceptor(LoggerInterceptor())
 .addInterceptor(ChuckerInterceptorHelper.createChuckerInterceptor(LogHelperUtils.getAppContext()))
 全局请使用com.zyc.loghelper.LogUtils
+
+debugImplementation("com.github.xiaochunzhi:LogHelper:1.0.7-devDebug@aar")
+releaseImplementation("com.github.xiaochunzhi:LogHelper:1.0.7@aar")

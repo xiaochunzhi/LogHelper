@@ -1,0 +1,5 @@
+# jitpack.yml
+
+# 告诉 JitPack 在构建时要执行的 Gradle 任务
+before_install:
+  - ./gradlew publishToMavenLocal
