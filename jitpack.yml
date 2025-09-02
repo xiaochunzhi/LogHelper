@@ -1,6 +1,5 @@
 # jitpack.yml
 
-# 告诉 JitPack 在构建时要执行的 Gradle 任务
-# jitpack.yml
-build:
-  - ./gradlew publish
+# 最可靠的解决方案：在构建前执行发布任务
+before_install:
+  - ./gradlew :loghelper:publish
