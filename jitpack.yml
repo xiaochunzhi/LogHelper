@@ -4,5 +4,8 @@
 jdk:
   - openjdk17
 
+# jitpack.yml
+
+# 使用 Gradle 命令明确构建和发布所有变体
 before_install:
-  - ./gradlew :loghelper:publish
+  - ./gradlew :loghelper:assembleDevDebug :loghelper:assembleProdRelease :loghelper:publish

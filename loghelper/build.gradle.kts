@@ -85,7 +85,7 @@ publishing {
         create<MavenPublication>("devDebug") {
             groupId = "com.github.xiaochunzhi"
             artifactId = "LogHelper"
-            version = "1.0.19-devDebug"
+            version = "1.0.20-devDebug"
             afterEvaluate {
                 from(components["devDebug"])
             }
@@ -94,7 +94,7 @@ publishing {
         create<MavenPublication>("prodRelease") {
             groupId = "com.github.xiaochunzhi"
             artifactId = "LogHelper"
-            version = "1.0.19"
+            version = "1.0.20"
             afterEvaluate {
                 from(components["prodRelease"])
             }
