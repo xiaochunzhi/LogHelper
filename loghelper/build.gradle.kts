@@ -73,23 +73,24 @@ dependencies {
 group = "com.zyc"
 // lib/build.gradle.kts
 
+// loghelper/build.gradle.kts
+
 publishing {
     publications {
-        // 这是用于发布到 Maven 的默认配置
+        // 创建 devDebug 的发布配置
         create<MavenPublication>("devDebug") {
-            groupId = "com.zyc"
+            groupId = "com.github.xiaochunzhi"
             artifactId = "LogHelper"
-            version = "1.0.11" // 将版本号改回主版本号
-
+            version = "1.0.16-devDebug"
             afterEvaluate {
                 from(components["devDebug"])
             }
         }
+        // 创建 prodRelease 的发布配置
         create<MavenPublication>("prodRelease") {
-            groupId = "com.zyc"
+            groupId = "com.github.xiaochunzhi"
             artifactId = "LogHelper"
-            version = "1.0.11"
-
+            version = "1.0.16"
             afterEvaluate {
                 from(components["prodRelease"])
             }
