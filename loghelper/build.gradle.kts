@@ -72,17 +72,27 @@ dependencies {
 }
 group = "com.zyc"
 publishing {
-    // 这个配置会发布正确的组件到 JitPack。
     publications {
+        // 发布 devDebug 变体
+        create<MavenPublication>("devDebug") {
+            groupId = "com.zyc"
+            artifactId = "loghelper"
+            version = "1.0.8-devDebug" // 为清晰起见，使用一个唯一的版本号
+            afterEvaluate {
+                from(components["devDebug"])
+            }
+
+        }
+
+        // 发布 prodRelease 变体
         create<MavenPublication>("prodRelease") {
             groupId = "com.zyc"
             artifactId = "loghelper"
-            version = "1.0.7"
-
-            afterEvaluate {
-                // 正确的组件名称是 prodRelease，它是 prod 风味和 release 构建类型的组合。
+            version = "1.0.8"
+            afterEvaluate{
                 from(components["prodRelease"])
             }
+
         }
     }
 }
