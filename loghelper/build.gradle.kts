@@ -76,8 +76,8 @@ publishing {
         // 发布 devDebug 变体
         create<MavenPublication>("devDebug") {
             groupId = "com.zyc"
-            artifactId = "loghelper"
-            version = "1.0.8-devDebug" // 为清晰起见，使用一个唯一的版本号
+            artifactId = "LogHelper"
+            version = "1.0.10-devDebug" // 为清晰起见，使用一个唯一的版本号
             afterEvaluate {
                 from(components["devDebug"])
             }
@@ -87,8 +87,8 @@ publishing {
         // 发布 prodRelease 变体
         create<MavenPublication>("prodRelease") {
             groupId = "com.zyc"
-            artifactId = "loghelper"
-            version = "1.0.8"
+            artifactId = "LogHelper"
+            version = "1.0.10"
             afterEvaluate{
                 from(components["prodRelease"])
             }
