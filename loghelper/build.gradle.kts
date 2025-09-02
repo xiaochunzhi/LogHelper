@@ -22,6 +22,10 @@ android {
             // 该 flavor 用于生产环境，默认禁用调试功能
         }
     }
+    publishing {
+        singleVariant("devDebug") {}
+        singleVariant("prodRelease") {}
+    }
     defaultConfig {
         minSdk = 23
         targetSdk = 34
@@ -81,7 +85,7 @@ publishing {
         create<MavenPublication>("devDebug") {
             groupId = "com.github.xiaochunzhi"
             artifactId = "LogHelper"
-            version = "1.0.17-devDebug"
+            version = "1.0.18-devDebug"
             afterEvaluate {
                 from(components["devDebug"])
             }
@@ -90,7 +94,7 @@ publishing {
         create<MavenPublication>("prodRelease") {
             groupId = "com.github.xiaochunzhi"
             artifactId = "LogHelper"
-            version = "1.0.17"
+            version = "1.0.18"
             afterEvaluate {
                 from(components["prodRelease"])
             }
