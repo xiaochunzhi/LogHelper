@@ -10,6 +10,5 @@ class App: Application() {
         LogHelperUtils.initialize(this)
         MMKV.initialize(this)
         MMKV.defaultMMKV().putString("test", "test")
-        LogHelperUtils.switchToAlternateLauncher(this,true)
     }
 }

@@ -4,32 +4,29 @@
 
     <application>
         <activity
-            android:name=".MMKVRecordActivity"
+            android:name="com.zyc.loghelper.MMKVRecordActivity"
             android:exported="false" />
 
         <activity
-            android:name=".LocalLogActivity"
+            android:name="com.zyc.loghelper.LocalLogActivity"
             android:exported="false" />
+
         <activity
-            android:name=".LoggerActivity"
-            android:exported="false">
+            android:name="com.zyc.loghelper.LoggerActivity"
+            android:exported="true" />
 
-        </activity>
-
-        <!-- 启动别名，通过资源控制是否启用 -->
         <activity-alias
-            android:name=".launcher.DebugLauncher"
-            android:enabled="@bool/debug_activity_enabled"
+            android:name=".DebugLauncherAlias"
             android:exported="true"
-            android:icon="@drawable/ic_launcher_background"
-            android:label="loghelper"
-            android:targetActivity=".LoggerActivity"> <!-- 必须允许外部启动 -->
+            android:enabled="@bool/debug_activity_enabled"
+            android:icon="@mipmap/ic_launcher"
+            android:label="loghelper调试"
+            android:targetActivity=".LoggerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
     </application>
-
 
 </manifest>

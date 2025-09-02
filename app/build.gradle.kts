@@ -7,7 +7,15 @@ plugins {
 android {
     namespace = "com.zyc.loggerhelpter"
     compileSdk = 35
-
+    flavorDimensions += "buildtype"
+    productFlavors {
+        create("dev") {
+            dimension = "buildtype"
+        }
+        create("prod") {
+            dimension = "buildtype"
+        }
+    }
     defaultConfig {
         applicationId = "com.zyc.loggerhelpter"
         minSdk = 23
@@ -70,7 +78,7 @@ dependencies {
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation (project(":loghelper"))
+    implementation(project(":loghelper"))
     implementation("com.tencent:mmkv:2.2.3")
 //    implementation("com.github.xiaochunzhi:LogHelper:1.0.5")
 }

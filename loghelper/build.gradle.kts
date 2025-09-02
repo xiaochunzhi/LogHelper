@@ -11,6 +11,17 @@ android {
     namespace = "com.zyc.loghelper"
     compileSdk = 34
 
+    flavorDimensions += "buildtype"
+    productFlavors {
+        create("dev") {
+            dimension = "buildtype"
+            // 该 flavor 用于开发和调试，默认启用调试功能
+        }
+        create("prod") {
+            dimension = "buildtype"
+            // 该 flavor 用于生产环境，默认禁用调试功能
+        }
+    }
     defaultConfig {
         minSdk = 23
         targetSdk = 34
@@ -61,15 +72,16 @@ dependencies {
 }
 group = "com.zyc"
 publishing {
-    // 这个配置对于 JitPack 不是必需的，但遵循标准 Maven 发布流程是个好习惯
+    // 这个配置会发布正确的组件到 JitPack。
     publications {
-        create<MavenPublication>("release") {
+        create<MavenPublication>("prodRelease") {
             groupId = "com.zyc"
-            artifactId = "loghelper" // 你的库名
-            version = "1.0.0"
+            artifactId = "loghelper"
+            version = "1.0.7"
 
             afterEvaluate {
-                from(components["release"])
+                // 正确的组件名称是 prodRelease，它是 prod 风味和 release 构建类型的组合。
+                from(components["prodRelease"])
             }
         }
     }
