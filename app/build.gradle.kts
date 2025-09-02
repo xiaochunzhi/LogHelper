@@ -78,9 +78,9 @@ dependencies {
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-//    implementation(project(":loghelper"))
+    implementation(project(":loghelper"))
     implementation("com.tencent:mmkv:2.2.3")
 //    implementation("com.github.xiaochunzhi:LogHelper:1.0.5")
-    debugImplementation("com.github.xiaochunzhi:LogHelper:1.0.17-devDebug")
-    releaseImplementation("com.github.xiaochunzhi:LogHelper:1.0.17")
+//    debugImplementation("com.github.xiaochunzhi:LogHelper:1.0.17-devDebug")
+//    releaseImplementation("com.github.xiaochunzhi:LogHelper:1.0.17")
 }
