@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.zyc.loggerhelpter"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.zyc.loggerhelpter"
@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -72,5 +72,5 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation (project(":loghelper"))
     implementation("com.tencent:mmkv:2.2.3")
-//    implementation("com.github.xiaochunzhi:LogHelper:1.0.4")
+//    implementation("com.github.xiaochunzhi:LogHelper:1.0.5")
 }

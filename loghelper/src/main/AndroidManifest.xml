@@ -12,30 +12,18 @@
             android:exported="false" />
         <activity
             android:name=".LoggerActivity"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
 
+        <!-- 启动别名，通过资源控制是否启用 -->
         <activity-alias
-            android:name=".LauncherAliasAlternate"
-            android:enabled="false"
+            android:name=".launcher.DebugLauncher"
+            android:enabled="@bool/debug_activity_enabled"
             android:exported="true"
             android:icon="@drawable/ic_launcher_background"
-            android:label="logHelper"
-            android:targetActivity=".LoggerActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-        <!-- 默认的启动器入口 (默认启用) -->
-        <activity-alias
-            android:name=".LauncherAliasDefault"
-            android:enabled="true"
-            android:exported="true"
-            android:icon="@drawable/ic_launcher_background"
-            android:label="logHelper"
-            android:targetActivity=".LoggerActivity">
+            android:label="loghelper"
+            android:targetActivity=".LoggerActivity"> <!-- 必须允许外部启动 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

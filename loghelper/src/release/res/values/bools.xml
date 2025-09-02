@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 在您的库模块的 res/values/bools.xml 中 -->
+<resources>
+    <bool name="debug_activity_enabled">false</bool>
+</resources>

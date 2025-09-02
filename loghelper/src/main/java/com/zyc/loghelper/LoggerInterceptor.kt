@@ -12,11 +12,11 @@ class LoggerInterceptor : Interceptor {
         // 记录请求信息
         val requestLog = StringBuilder()
         requestLog.append("---------- Request ----------\n")
-        requestLog.append("Method: ${request.method}\n")
-        requestLog.append("URL: ${request.url}\n")
-        requestLog.append("Headers: ${request.headers}\n")
+        requestLog.append("Method: ${request.method()}\n")
+        requestLog.append("URL: ${request.url()}\n")
+        requestLog.append("Headers: ${request.headers()}\n")
 
-        request.body?.let { body ->
+        request.body()?.let { body ->
             requestLog.append("Body: $body\n")
         }
 
@@ -30,12 +30,12 @@ class LoggerInterceptor : Interceptor {
         // 记录响应信息
         val responseLog = StringBuilder()
         responseLog.append("---------- Response ----------\n")
-        responseLog.append("URL: ${request.url}\n")
-        responseLog.append("Status Code: ${response.code}\n")
+        responseLog.append("URL: ${request.url()}\n")
+        responseLog.append("Status Code: ${response.code()}\n")
         responseLog.append("Time: ${endTime - startTime}ms\n")
-        responseLog.append("Headers: ${response.headers}\n")
+        responseLog.append("Headers: ${response.headers()}\n")
 
-        response.body?.let { body ->
+        response.body()?.let { body ->
             responseLog.append("Body: $body\n")
         }
 
