@@ -1,5 +1,7 @@
 # jitpack.yml
 
 # 告诉 JitPack 在构建时要执行的 Gradle 任务
+# jitpack.yml
+
 build:
-  - ./gradlew assembleProdRelease publish
+  - ./gradlew -p loghelper assembleProdRelease publish
