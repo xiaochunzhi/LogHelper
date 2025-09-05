@@ -16,12 +16,12 @@
             android:exported="true" />
 
         <activity-alias
-            android:name=".DebugLauncherAlias"
-            android:exported="true"
+            android:name="com.zyc.loghelper.LoggerAlias"
             android:enabled="@bool/debug_activity_enabled"
-            android:icon="@mipmap/ic_launcher"
-            android:label="loghelper调试"
-            android:targetActivity=".LoggerActivity">
+            android:exported="true"
+            android:icon="@drawable/ic_launcher_background"
+            android:label="日志调试"
+            android:targetActivity="com.zyc.loghelper.LoggerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

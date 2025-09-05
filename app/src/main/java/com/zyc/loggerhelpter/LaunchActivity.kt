@@ -43,6 +43,7 @@ class LaunchActivity : ComponentActivity() {
 
     @Composable
     fun Greeting(name: String, modifier: Modifier = Modifier) {
+//        WelfareLiveScreen()
         Column(modifier = Modifier
             .fillMaxSize()
             .padding(40.dp)
